@@ -8,7 +8,18 @@
     //zmk,matrix_transform = &five_column_transform;
   };
 };
-
+/ {
+    behaviors {
+        tpmt: behavior_tp_mod_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TAP_PREFERRED_MOD_TAP";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
+        };
+    };
+  };
 / {
         keymap {
                 compatible = "zmk,keymap";
@@ -21,10 +32,10 @@
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         bindings = <
-   &mt LA(LEFT_SHIFT) TAB  &kp Q  &kp W  &kp E  &kp R       &kp T      &kp Y  &kp U  &kp I      &kp O    &kp P           &kp BSPC
-   &lt 3 ESC               &kp A  &kp S  &kp D  &kp F       &kp G      &kp H  &kp J  &kp K      &kp L    &mt LCTRL SEMI  &kp RET
-   &kp LSHFT               &kp Z  &kp X  &kp C  &kp V       &kp B      &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH        &mt RSHIFT SQT
-                           &kp LGUI  &mo 1  &kp SPACE       &lt 3 RET  &mo 2  &kp RALT
+   &tpmt LA(LEFT_SHIFT) TAB  &kp Q  &kp W  &kp E  &kp R       &kp T      &kp Y  &kp U  &kp I      &kp O    &kp P             &kp BSPC
+   &lt 3 ESC                 &kp A  &kp S  &kp D  &kp F       &kp G      &kp H  &kp J  &kp K      &kp L    &tpmt LCTRL SEMI  &kp RET
+   &kp LSHFT                 &kp Z  &kp X  &kp C  &kp V       &kp B      &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH        &tpmt RSHIFT SQT
+                             &kp LGUI  &mo 1  &kp SPACE       &lt 3 RET  &mo 2  &kp RALT
                         >;
                 };
                 lower_layer {
@@ -65,9 +76,9 @@
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &trans  &trans  &trans  &trans  &trans  &trans     &kp LGUI(Y)  &trans    &trans  &trans    &kp LGUI(V)  &trans
-   &trans  &trans  &trans  &trans  &trans  &trans     &kp LEFT     &kp DOWN  &kp UP  &kp RIGHT &trans       &trans
-   &trans  &trans  &trans  &trans  &trans  &trans     &trans       &trans    &trans  &trans    &trans       &trans
+   &trans  &trans  &trans  &trans  &trans  &trans     &trans       &trans    &trans  &trans    &trans  &trans
+   &trans  &trans  &trans  &trans  &trans  &trans     &kp LEFT     &kp DOWN  &kp UP  &kp RIGHT &trans  &trans
+   &trans  &trans  &trans  &trans  &trans  &trans     &trans       &trans    &trans  &trans    &trans  &trans
                            &trans  &trans  &trans     &trans       &trans    &trans
                         >;
                 };
