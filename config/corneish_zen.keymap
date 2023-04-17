@@ -65,10 +65,10 @@
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &trans  &trans  &trans  &kp LA(RIGHT)  &trans  &trans           &kp LGUI(Y)  &trans    &trans  &trans    &kp LGUI(V)  &trans
-   &trans  &trans  &trans  &trans         &trans  &trans           &kp LEFT     &kp DOWN  &kp UP  &kp RIGHT &trans       &trans
-   &trans  &trans  &trans  &trans         &trans  &kp LA(LEFT)     &trans       &trans    &trans  &trans    &trans       &trans
-                           &trans         &trans  &trans           &trans       &trans    &trans
+   &trans  &trans  &trans  &trans  &trans  &trans     &kp LGUI(Y)  &trans    &trans  &trans    &kp LGUI(V)  &trans
+   &trans  &trans  &trans  &trans  &trans  &trans     &kp LEFT     &kp DOWN  &kp UP  &kp RIGHT &trans       &trans
+   &trans  &trans  &trans  &trans  &trans  &trans     &trans       &trans    &trans  &trans    &trans       &trans
+                           &trans  &trans  &trans     &trans       &trans    &trans
                         >;
                 };
 
