@@ -20,6 +20,20 @@
             tapping-term-ms = <200>;
             bindings = <&kp>, <&kp>;
         };
+
+        td_super_ctrl: td_super_ctrl {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_SUPER_CTRL";
+            #binding-cells = <0>;
+            bindings = <&kp LGUI>, <&kp LCTRL>;
+        };
+
+        td_glower: td_glower {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_GLOWER";
+            #binding-cells = <0>;
+            bindings = <&mo 1>, <&mo 5>;
+        };
     };
 };
 
@@ -37,10 +51,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&tpmt LA(LEFT_SHIFT) TAB  &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Y      &kp U  &kp I         &kp O    &kp P             &kp BSPC
-&lt 3 ESC                 &kp A  &kp S  &kp D     &kp F  &kp G        &kp H      &kp J  &kp K         &kp L    &tpmt LCTRL SEMI  &kp RET
-&kp LSHFT                 &kp Z  &kp X  &kp C     &kp V  &kp B        &kp N      &kp M  &kp COMMA     &kp DOT  &kp FSLH          &tpmt RSHIFT SQT
-                                        &kp LGUI  &mo 1  &kp SPACE    &lt 3 RET  &mo 2  &kp LEFT_ALT
+&tpmt LA(LEFT_SHIFT) TAB  &kp Q  &kp W  &kp E           &kp R       &kp T        &kp Y      &kp U  &kp I         &kp O    &kp P             &kp BSPC
+&lt 3 ESC                 &kp A  &kp S  &kp D           &kp F       &kp G        &kp H      &kp J  &kp K         &kp L    &tpmt LCTRL SEMI  &kp RET
+&kp LSHFT                 &kp Z  &kp X  &kp C           &kp V       &kp B        &kp N      &kp M  &kp COMMA     &kp DOT  &kp FSLH          &tpmt RSHIFT SQT
+                                        &td_super_ctrl  &td_glower  &kp SPACE    &lt 3 RET  &mo 2  &kp LEFT_ALT
             >;
         };
 
@@ -109,6 +123,16 @@
 &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans   &trans
 &trans      &trans        &trans        &trans        &trans        &trans          &trans    &trans    &trans  &trans     &trans   &trans
                                         &trans        &trans        &trans          &trans    &trans    &trans
+            >;
+        };
+
+        gui_lower {
+            label = "GNUM";
+            bindings = <
+&kp LG(GRAVE)  &kp LG(N1)  &kp LG(N2)  &kp LG(N3)  &kp LG(N4)     &kp LG(N5)    &kp LG(N6)  &kp LG(N7)     &kp LG(N8)     &kp LG(N9)    &kp LG(N0)    &trans
+&kp LCTRL      &trans      &trans      &trans      &kp LA(SPACE)  &trans        &trans      &kp LG(MINUS)  &kp LG(EQUAL)  &kp LG(LBKT)  &kp LG(RBKT)  &kp LG(BSLH)
+&trans         &trans      &trans      &trans      &trans         &trans        &trans      &trans         &trans         &trans        &trans        &trans
+                                       &trans      &trans         &trans        &trans      &mo 4          &trans
             >;
         };
     };
